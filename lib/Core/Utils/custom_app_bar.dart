@@ -20,8 +20,8 @@ class CustomAppBar extends StatelessWidget {
       decoration: const BoxDecoration(
           color: kPrimary,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(70),
-          )),
+              bottomLeft: Radius.circular(70),
+              bottomRight: Radius.circular(70))),
       child: Center(
         child: Text(
           text,

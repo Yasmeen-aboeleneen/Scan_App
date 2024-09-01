@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:scan_app/Core/Constants/colors.dart';
+import 'package:scan_app/Views/Home/Mobile/PDF/pdf_converter.dart';
 import 'package:scan_app/Views/Home/Mobile/PDF/pdf_viewer.dart';
 import 'package:scan_app/Views/Home/Mobile/QRCode/generate_qr_code_screen.dart';
 import 'package:scan_app/Views/Home/Mobile/QRCode/scan_barcode.dart';
-import 'package:scan_app/Views/Settings/settings_screen.dart';
 import 'package:scan_app/Views/Widgets/custom_container.dart';
 
 class ContainerBody extends StatelessWidget {
@@ -17,7 +17,6 @@ class ContainerBody extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     return Container(
       margin: EdgeInsets.all(h * .001),
-      height: h * .5,
       width: w,
       child: Column(
         children: [
@@ -69,9 +68,9 @@ class ContainerBody extends StatelessWidget {
                     Get.to(() => const PdfViewer());
                   },
                   child: const CustomContainer(
-                    title: 'PDF Viewer',
+                    title: 'PDF \nViewer',
                     icon: Icon(
-                      Icons.picture_as_pdf_rounded,
+                      Icons.open_in_browser_outlined,
                       color: kveryWhite,
                       size: 35,
                     ),
@@ -84,12 +83,12 @@ class ContainerBody extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(() => const SettingsScreen());
+                    Get.to(() => const PdfConverter());
                   },
                   child: const CustomContainer(
-                    title: 'Settings',
+                    title: 'Images To PDF',
                     icon: Icon(
-                      Icons.settings,
+                      Icons.picture_as_pdf,
                       color: kveryWhite,
                       size: 35,
                     ),
@@ -97,6 +96,9 @@ class ContainerBody extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            height: h * .05,
           ),
         ],
       ),

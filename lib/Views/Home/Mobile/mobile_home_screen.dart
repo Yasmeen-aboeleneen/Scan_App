@@ -11,25 +11,32 @@ class MobileHomeScreen extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        backgroundColor: kveryWhite,
-        body: Padding(
-          padding: EdgeInsets.only(top: h * .01, left: h * .01, right: h * .01),
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-              SizedBox(
-                height: h * .34,
-                width: w,
-                child: Image.asset(
-                  'assets/pic.png',
-                ),
+      backgroundColor: kveryWhite,
+      body: Padding(
+        padding: EdgeInsets.only(top: h * .01, left: h * .01, right: h * .01),
+        child: Column(
+          children: [
+            SizedBox(
+              height: h * .34,
+              width: w,
+              child: Image.asset(
+                'assets/pic.png',
               ),
-              SizedBox(
-                height: h * .08,
+            ),
+            SizedBox(
+              height: h * .08,
+            ),
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                children: const [
+                  ContainerBody(),
+                ],
               ),
-              const ContainerBody()
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
