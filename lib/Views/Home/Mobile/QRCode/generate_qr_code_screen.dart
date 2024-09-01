@@ -46,7 +46,7 @@ class _GenerateQrCodeScreenState extends State<GenerateQrCodeScreen> {
               text: 'QR Code Generator',
             ),
             SizedBox(
-              height: h * .02,
+              height: h * .04,
             ),
             QrCode(textdata: textdata), // Pass the updated textdata
             Padding(
@@ -75,8 +75,11 @@ class _GenerateQrCodeScreenState extends State<GenerateQrCodeScreen> {
                       textcontroller.text; // Update textdata on button press
                 });
               },
-              child: const CustomButton(
-                buttonName: 'Generate QR Code',
+              child: Padding(
+                padding: EdgeInsets.only(left: h * .06, right: h * .06),
+                child: const CustomButton(
+                  buttonName: 'Generate QR Code',
+                ),
               ),
             ),
           ],

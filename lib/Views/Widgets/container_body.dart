@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:scan_app/Core/Constants/colors.dart';
+import 'package:scan_app/Views/Home/Mobile/PDF/pdf_viewer.dart';
 import 'package:scan_app/Views/Home/Mobile/QRCode/generate_qr_code_screen.dart';
+import 'package:scan_app/Views/Home/Mobile/QRCode/scan_barcode.dart';
+import 'package:scan_app/Views/Settings/settings_screen.dart';
 import 'package:scan_app/Views/Widgets/custom_container.dart';
 
 class ContainerBody extends StatelessWidget {
@@ -40,7 +43,9 @@ class ContainerBody extends StatelessWidget {
               ),
               Expanded(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => const ScanBarcode());
+                  },
                   child: const CustomContainer(
                       title: 'Scan Barcode',
                       icon: Icon(
@@ -60,7 +65,9 @@ class ContainerBody extends StatelessWidget {
             children: [
               Expanded(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => const PdfViewer());
+                  },
                   child: const CustomContainer(
                     title: 'PDF Viewer',
                     icon: Icon(
@@ -76,7 +83,9 @@ class ContainerBody extends StatelessWidget {
               ),
               Expanded(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => const SettingsScreen());
+                  },
                   child: const CustomContainer(
                     title: 'Settings',
                     icon: Icon(
