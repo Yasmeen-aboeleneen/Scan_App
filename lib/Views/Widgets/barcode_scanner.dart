@@ -68,7 +68,7 @@ class _ScanScreenState extends State<BarcodeScanner> {
           GestureDetector(
             onTap: _scanDirectly,
             child: CustomIconButton(
-              text: 'Scan Direct',
+              text: 'Capture Image',
               icon: Icon(
                 Icons.photo_camera,
                 size: w * .1,
@@ -96,15 +96,12 @@ class _ScanScreenState extends State<BarcodeScanner> {
 
   Future<void> _scanFromGallery() async {
     try {
-      // Pick an image from the gallery
       final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 
       if (image != null) {
-        // Decode the barcode from the image
         final inputImage = InputImage.fromFilePath(image.path);
         final barcodeScanner = GoogleMlKit.vision.barcodeScanner();
 
-        // Try to process the image
         final List<Barcode> barcodes =
             await barcodeScanner.processImage(inputImage);
 
@@ -118,7 +115,6 @@ class _ScanScreenState extends State<BarcodeScanner> {
           });
         }
 
-        // Close the scanner after processing
         barcodeScanner.close();
       } else {
         setState(() {
